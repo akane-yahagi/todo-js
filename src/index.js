@@ -12,8 +12,23 @@ const addClick = () => {
   const li = document.createElement("li");
   li.innerText = inputText;
 
-  // divタグの子要素にliを設置
+  // btn(DONE)タグ生成
+  const doneBtn = document.createElement("button");
+  doneBtn.innerText = "DONE";
+  doneBtn.addEventListener("click", () => {
+    alert("DONE");
+  });
+
+  // btn(DELETE)タグ生成
+  const deleteBtn = document.createElement("button");
+  deleteBtn.innerText = "DELETE";
+  deleteBtn.addEventListener("click", () => {
+    alert("DELETE");
+  });
+  // divタグの子要素に各要素を設置
   div.appendChild(li);
+  div.appendChild(doneBtn);
+  div.appendChild(deleteBtn);
 
   // 用意しているulタグの子要素にdivタグ設置
   const ul = document.getElementById("incomplete_list");
