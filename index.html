@@ -6,27 +6,31 @@
   </head>
 
   <body>
-    <div>
+    <div class="input_area">
       <input placeholder="TODOを入力" type="text" />
       <button>Add</button>
     </div>
-    <div>
-      <p>Uncomplete Tasks</p>
+    <div class="incompleted_area">
+      <p class="title">Incomplete Tasks</p>
       <ul>
-        <li>
-          TODO
-        </li>
-        <button>DONE</button>
-        <button>REMOVE</button>
+        <div class="list_row">
+          <li>
+            TODO
+          </li>
+          <button>DONE</button>
+          <button>REMOVE</button>
+        </div>
       </ul>
     </div>
-    <div>
-      <p>Completed Tasks</p>
+    <div class="completed_area">
+      <p class="title">Completed Tasks</p>
       <ul>
-        <li>
-          DONE TODO
-        </li>
-        <button>GO Uncomplete</button>
+        <div class="list_row">
+          <li>
+            DONE TODO
+          </li>
+          <button>GO Uncomplete</button>
+        </div>
       </ul>
     </div>
     <script src="src/index.js"></script>
