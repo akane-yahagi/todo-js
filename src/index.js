@@ -16,14 +16,37 @@ const addClick = () => {
   const doneBtn = document.createElement("button");
   doneBtn.innerText = "DONE";
   doneBtn.addEventListener("click", () => {
-    alert("DONE");
+    // 未完了から削除
+    removeFromIncompleteList(doneBtn.parentNode);
+
+    // 親div要素取得
+    const addTarget = doneBtn.parentNode;
+
+    // liタグ生成とテキスト取得
+    const completedli = document.createElement("li");
+    completedli.innerText = addTarget.firstChild.innerText;
+
+    // 親divの中身削除
+    addTarget.textContent = null;
+
+    // ボタンの生成
+    const backBtn = document.createElement("button");
+    backBtn.innerText = "Back";
+
+    // 親divに格納
+    addTarget.appendChild(completedli);
+    addTarget.appendChild(backBtn);
+
+    const targetUl = document.getElementById("complete_list");
+    targetUl.appendChild(addTarget);
   });
 
   // btn(DELETE)タグ生成
   const deleteBtn = document.createElement("button");
   deleteBtn.innerText = "DELETE";
   deleteBtn.addEventListener("click", () => {
-    alert("DELETE");
+    // 親のdivタグをincomplete_listから削除
+    removeFromIncompleteList(deleteBtn.parentNode);
   });
   // divタグの子要素に各要素を設置
   div.appendChild(li);
@@ -33,6 +56,11 @@ const addClick = () => {
   // 用意しているulタグの子要素にdivタグ設置
   const ul = document.getElementById("incomplete_list");
   ul.appendChild(div);
+};
+
+// 未完了リストから指定の要素を削除
+const removeFromIncompleteList = (child) => {
+  document.getElementById("incomplete_list").removeChild(child);
 };
 
 document.getElementById("add_btn").addEventListener("click", () => addClick());
